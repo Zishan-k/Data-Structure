@@ -18,12 +18,19 @@ public class Recursion3 {
 
 
         /*Given n, print first n+1 whole numbers in lexicographical order.*/
-        //printInLexicoOrder(1000, 0);
+        printInLexicoOrder(1000, 0);
 
         /*Given a string, with all unique characters, print all possible permutations of strings.*/
         //permutations("ABC", "");
-        spacePermutation("ABC", "", 0);
+        //spacePermutation("ABC", "", 0);
+    }
 
+    private static void printInLexicoOrder1(int n, int i) {
+        if(i > n) return;
+        System.out.println(i);
+        for (int j = i==0?1:0; j <=9; j++) {
+            printInLexicoOrder1(n, 10*i+j);
+        }
     }
 
     private static void permutations(String str, String perms) {
@@ -89,4 +96,7 @@ public class Recursion3 {
         findPaths(i + 1, j, n, m, osf + "D");
         findPaths(i + 1, j + 1, n, m, osf + "->");
     }
+
+
+
 }

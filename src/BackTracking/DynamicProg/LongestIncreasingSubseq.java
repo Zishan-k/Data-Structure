@@ -1,6 +1,6 @@
 package BackTracking.DynamicProg;
 
-import Util.ArrayUtil;
+import Util.Util;
 import java.util.Arrays;
 
 /**
@@ -15,7 +15,7 @@ public class LongestIncreasingSubseq {
                 dp[n] = Integer.max(dp[n], 1 +lisTD(arr, n-1, dp));
             else dp[n] = 1;
         }
-        return ArrayUtil.max(dp);
+        return Util.max(dp);
     }
 
     private static int lisBU(int[] arr, int n){
@@ -27,7 +27,7 @@ public class LongestIncreasingSubseq {
                     dp[i] = Math.max(dp[i], 1+dp[j]);
             }
         }
-        return ArrayUtil.max(dp);
+        return Util.max(dp);
     }
 
     public static void main(String[] args) {

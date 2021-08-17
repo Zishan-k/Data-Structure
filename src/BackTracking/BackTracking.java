@@ -23,7 +23,6 @@ public class BackTracking {
         }
     }
 
-
     private static boolean isItSafe(int[][] arr, int n, int i, int j, boolean[][] visited) {
         return i >= 0 && j >= 0 && i < n && j < n && !visited[i][j] && arr[i][j] != 0;
     }
@@ -261,7 +260,6 @@ public class BackTracking {
             System.out.println();
         }
     }
-
     //------------------------------------------------------------------------------
     public static void main(String[] args) {
         char[][] chars = new char[][]{{'G', 'I', 'Z'},

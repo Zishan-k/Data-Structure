@@ -308,7 +308,7 @@ class BinaryTree {
         int count = 0;
         while (!queue.isEmpty()) {
 
-            
+
             Node curr = queue.poll();
             if (curr != null) {
                 if (curr.left != null) queue.offer(curr.left);
@@ -336,7 +336,7 @@ class BinaryTree {
         q.offer(null);
         q.offer(node);
         int count = 0;
-        while (q.isEmpty() == false) {
+        while (!q.isEmpty()) {
 
             Node curr = q.poll();
             if (curr != null) {

@@ -1,5 +1,7 @@
 package BackTracking;
 
+import Util.Util;
+
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -21,7 +23,54 @@ public class AmazonQuestions {
         //System.out.println(findNoOccurringOddTimesIn(new int[]{1,1,3,3,4,6,5,6,6,4}));
         //System.out.println(fact(5));
         //System.out.println(fibo(3));
+        //System.out.println(petrolPump(new int[]{4, 6, 7, 4}, new int[]{6, 5, 3, 5}));
+        //findGroups(new int[]{3, 6, 7, 2, 9}, 3, new ArrayList<>(), 0);
+        findSums(new int[]{10, 2, 3, 4, 5, 9, 7, 8}, 23, new ArrayList<>());
     }
+
+
+    private static void findSums(int[] arr, int x, ArrayList<Integer> al) {
+        if (al.size() == 4) {
+            System.out.println(al);
+            al.remove(al.size()-1);
+            return;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            al.add(arr[i]);
+            findSums(arr, x, al);
+        }
+    }
+
+    public static int divCount = 0;
+    //todo
+
+    /**
+     * Given an unsorted integer (positive values only) array of size ‘n’,
+     * we can form a group of two or three,
+     * the group should be such that the sum of all elements in that group
+     * is a multiple of 3. Count all possible number of groups that can be generated in this way.
+     * Examples:
+     * Input: arr[] = {3, 6, 7, 2, 9}
+     * Output: 8
+     * // Groups are {3,6}, {3,9}, {9,6}, {7,2}, {3,6,9},
+     * //            {3,7,2}, {7,2,6}, {7,2,9}
+     * Input: arr[] = {2, 1, 3, 4}
+     * Output: 4
+     * // Groups are {2,1}, {2,4}, {2,1,3}, {2,4,3}
+     */
+    private static void findGroups(int[] arr, int div, ArrayList<Integer> al, int index) {
+        if (index >= arr.length) return;
+        if ((al.size() == 2 || al.size() == 3) && Util.sum(al) % div == 0) {
+            System.out.println(al);
+            divCount++;
+            return;
+        }
+        for (int i = index; i < arr.length; i++) {
+            al.add(arr[i]);
+            findGroups(arr, div, al, index + 1);
+        }
+    }
+
     private static boolean doesSumExists(int[] arr, int k) {
         Set<Integer> set = new HashSet<>();
         for (int j : arr) {
@@ -33,12 +82,12 @@ public class AmazonQuestions {
 
     private static int findNoOccurringOddTimesIn(int[] arr) {
         Map<Integer, Integer> valVsCount = new HashMap<>();
-        for (int i = 0; i < arr.length; i++) {
-            if (!valVsCount.containsKey(arr[i]))
-                valVsCount.put(arr[i], 1);
+        for (int j : arr) {
+            if (!valVsCount.containsKey(j))
+                valVsCount.put(j, 1);
             else {
-                valVsCount.put(arr[i], valVsCount.get(arr[i]) + 1);
-                if (valVsCount.get(arr[i]) % 2 == 1) return arr[i];
+                valVsCount.put(j, valVsCount.get(j) + 1);
+                if (valVsCount.get(j) % 2 == 1) return j;
             }
         }
         return -1;
@@ -261,4 +310,56 @@ Output:        {_, 1, _, 0, 2}
             if (j == -1) System.out.print("_" + ", ");
         }
     }
+
+
+    /*
+    * Suppose there is a circle. There are N petrol pumps on that circle. You will be given two sets of data.
+      1. The amount of petrol that every petrol pump has.
+      2. Distance from that petrol pump to the next petrol pump.
+      Find a starting point where the truck can start to get through the complete circle without exhausting its petrol in between.
+Input:
+N = 4
+Petrol =   4 6 7 4
+Distance = 6 5 3 5
+Output: 1
+Explanation: There are 4 petrol pumps with
+amount of petrol and distance to next
+petrol pump value pairs as {4, 6}, {6, 5},
+{7, 3} and {4, 5}. The first point from
+where truck can make a circular tour is
+2nd petrol pump. Output in this case is 1
+(index of 2nd petrol pump).
+    *
+    * */
+    private static int petrolPump(int[] petrol, int[] distance) {
+        int dificit = 0, cal = 0, start = -1;
+        for (int i = 0; i < petrol.length; i++) {
+            cal += petrol[i] - distance[i];
+            if (cal < 0) {
+                start = i + 1;
+                dificit = cal;
+                cal = 0;
+            }
+        }
+        return (cal + dificit) > 0 ? start : -1;
+    }
+
+    void reverseStack(Stack<Integer> stack) {
+        if (stack.isEmpty()) return;
+        int popped = stack.peek();
+        stack.pop();
+        reverseStack(stack);
+        insertAtBottom(stack, popped);
+    }
+
+    private void insertAtBottom(Stack<Integer> stack, int data) {
+        if (stack.isEmpty()) {
+            stack.push(data);
+            return;
+        }
+        int popped = stack.pop();
+        insertAtBottom(stack, data);
+        stack.push(popped);
+    }
+
 }

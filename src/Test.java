@@ -1,8 +1,9 @@
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Test{
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
+       /* Scanner s = new Scanner(System.in);
         int n = s.nextInt();
         int k = s.nextInt();
         int count = 0;
@@ -10,8 +11,8 @@ public class Test{
             int x = s.nextInt();
             if (x % k == 0)
                 count++;
-        }
-        System.out.println(count);
+        }*/
+        //System.out.println(count);
     }
 
     static String getBinary(Integer i){
