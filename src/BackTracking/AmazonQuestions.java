@@ -13,7 +13,7 @@ public class AmazonQuestions {
         //System.out.println(Arrays.toString(q3(new int[]{1, 3, 0, 2, 5})));
         //System.out.println(checkClockwise("abcdef", "efabcd") || checkAntiClockwise("abcdef","efabcd"));
         //System.out.println(findPairWithProduct(new int[]{1,2,3,4,4,6,7}, 29));
-        //System.out.println(replaceZeros(102));
+        System.out.println(replaceZeros(102));
         //System.out.println(getNumberOfOccurrences(new int[]{1, 2, 3, 3, 3, 3, 4, 6, 7, 8}, 3, 11));
         //System.out.println(clockAngle(3, 30));
         //System.out.println(getEquilibriumIndex(new int[]{-7, 1, 5, 2, -4, 3, 0}));
@@ -25,7 +25,7 @@ public class AmazonQuestions {
         //System.out.println(fibo(3));
         //System.out.println(petrolPump(new int[]{4, 6, 7, 4}, new int[]{6, 5, 3, 5}));
         //findGroups(new int[]{3, 6, 7, 2, 9}, 3, new ArrayList<>(), 0);
-        findSums(new int[]{10, 2, 3, 4, 5, 9, 7, 8}, 23, new ArrayList<>());
+        //findSums(new int[]{10, 2, 3, 4, 5, 9, 7, 8}, 23, new ArrayList<>());
     }
 
 

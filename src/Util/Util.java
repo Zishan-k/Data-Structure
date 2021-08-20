@@ -9,14 +9,14 @@ public class Util {
         return maxVal;
     }
 
-    public static String swap(String str, int i, int j){
+    public static String swap(String str, int i, int j) {
         StringBuilder sb = new StringBuilder(str);
         sb.setCharAt(i, str.charAt(j));
         sb.setCharAt(j, str.charAt(i));
         return sb.toString();
     }
 
-    public static int sum(ArrayList<Integer> al){
+    public static int sum(ArrayList<Integer> al) {
         int sum = 0;
         for (int temp :
                 al) {

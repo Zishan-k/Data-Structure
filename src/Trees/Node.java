@@ -1,4 +1,4 @@
-package tree;
+package Trees;
 
 public class Node {
 

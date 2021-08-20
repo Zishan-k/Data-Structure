@@ -1,7 +1,5 @@
 package sorting;
 
-import org.jetbrains.annotations.NotNull;
-
 public class Sort {
 
     void selectionSort(int[] arr){
@@ -22,7 +20,7 @@ public class Sort {
         };
     }
 
-    void bubbleSort(int @NotNull [] arr){
+    void bubbleSort(int [] arr){
         int temp;
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr.length-i-1; j++) {
